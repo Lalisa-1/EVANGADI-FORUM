@@ -1,0 +1,7 @@
+/* styles/main.css */
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* Your custom styles can be added below this line */

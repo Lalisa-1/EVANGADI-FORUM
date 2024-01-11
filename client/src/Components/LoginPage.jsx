@@ -83,21 +83,19 @@ function Login({ toggle }) {
 						<label
 							className="block text-gray-700 text-sm font-bold mb-2"
 							// htmlFor="username"
-						>
-							Email address
-						</label>
+						></label>
 						<input
-							className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+							className="shadow appearance-none border rounded w-full py-4 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
 							id="email"
 							type="email"
-							placeholder="email"
+							placeholder="Email address"
 							ref={emailDom}
 						/>
 					</div>
 
 					<div className="relative mb-4">
 						<input
-							className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+							className="shadow appearance-none border rounded w-full py-4 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
 							id="password"
 							type={togglePassword ? "text" : "password"}
 							placeholder="password"

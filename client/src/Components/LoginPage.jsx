@@ -9,23 +9,23 @@ function Login({ toggle }) {
 	const navigate = useNavigate();
 	const emailDom = useRef(null);
 	const passwordDom = useRef(null);
-	// const [password, setPassword] = useState("");
+	const [password, setPassword] = useState("");
 	const [togglePassword, setTogglePassword] = useState(false);
 
 	async function handleSubmit(e) {
 		e.preventDefault();
 
 		const emailValue = emailDom.current.value;
-		const passValue = passwordDom.current.value;
-		if (!emailValue || !passValue) {
+		const passwordValue = passwordDom.current.value;
+		if (!emailValue || !passwordValue) {
 			alert("please provide all required information");
 			return;
 		}
 
 		try {
 			const { data } = await axios.post("users/login", {
-				mail: emailValue,
-				password: passValue,
+				email: emailValue,
+				password: passwordValue,
 			});
 			alert("login successfull,");
 
@@ -38,18 +38,6 @@ function Login({ toggle }) {
 		}
 	}
 
-	// function togglePassword() {
-	// 	const passwordInput = document.getElementById("passwordInput");
-	// 	const toggleIcon = document.querySelector(".toggle-password");
-
-	// 	if (passwordInput.type === "password") {
-	// 		passwordInput.type = "text";
-	// 		toggleIcon.textContent = "👁️";
-	// 	} else {
-	// 		passwordInput.type = "password";
-	// 		toggleIcon.textContent = "👁️";
-	// 	}
-	// }
 	// show/hide passowrd functionaity
 
 	const showHidePassowrd = (e) => {

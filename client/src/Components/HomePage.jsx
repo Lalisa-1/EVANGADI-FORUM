@@ -25,7 +25,7 @@ function HomePage() {
 	// console.log(questionList);
 	return (
 		<div className="bg-slate-100">
-			<div className="text-3xl text-center flex justify-between ml-10 p-10 w-4/5">
+			<div className="text-3xl text-center flex justify-between ml-10 mt-5 p-20 w-4/5">
 				<div>
 					<a
 						href="/questions/ask"
@@ -45,63 +45,52 @@ function HomePage() {
 				/>
 				<br />
 			</div>
-			<hr />
-
-			<div className=" max-h-80 mx-10 pb-20  overflow-y-scroll pr-20 w-3/4">
-				{questionList?.map((single, i) => {
-					const y = (
-						<>
-							<Link to={`/questions/${single.questionid}`}>
-								<div key={i} className="flex justify-around max-h-50">
-									<div className=" pb-5">
-										<svg
-											xmlns="http://www.w3.org/2000/svg"
-											fill="none"
-											viewBox="0 0 24 24"
-											strokeWidth="1.5"
-											stroke="currentColor"
-											className="w-20 h-30 border-2 rounded-full border-black border-solid p-5"
-										>
-											<path
-												strokeLinecap="round"
-												strokeLinejoin="round"
-												d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
-											/>
-										</svg>
-
-										<a href={`/questions/${single.questionid}⁠`}>
-											{single.user_name}
-										</a>
-									</div>
-									<a
-										href={`/questions/${single.questionid}⁠`}
-										className="pr-20"
+			<div className="max-h-80 mx-10 pb-20 overflow-y-scroll pr-20 w-3/4">
+				{questionList?.map((single, i) => (
+					<React.Fragment key={i}>
+						<Link to={`/questions/${single.questionid}`}>
+							<div className="flex justify-around max-h-50">
+								<div className="pb-5">
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										fill="none"
+										viewBox="0 0 24 24"
+										strokeWidth="1.5"
+										stroke="currentColor"
+										className="w-20 h-30 border-2 rounded-full border-black border-solid p-5"
 									>
-										{single.title}
-									</a>
-									<div className="ml-80">
-										<svg
-											xmlns="http://www.w3.org/2000/svg"
-											fill="none"
-											viewBox="0 0 24 24"
-											strokeWidth="1.5"
-											stroke="currentColor"
-											className="w-6 h-6"
-										>
-											<path
-												strokeLinecap="round"
-												strokeLinejoin="round"
-												d="m8.25 4.5 7.5 7.5-7.5 7.5"
-											/>
-										</svg>
-									</div>
+										<path
+											strokeLinecap="round"
+											strokeLinejoin="round"
+											d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
+										/>
+									</svg>
+									<span>{single.user_name}</span>
 								</div>
-							</Link>
-							<hr class="h-px my-2 bg-gray-300 border-0 dark:bg-gray-500 mx-5"></hr>
-						</>
-					);
-					return y;
-				})}
+								<div className="pr-20">
+									<span>{single.title}</span>
+								</div>
+								<div className="ml-80">
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										fill="none"
+										viewBox="0 0 24 24"
+										strokeWidth="1.5"
+										stroke="currentColor"
+										className="w-6 h-6"
+									>
+										<path
+											strokeLinecap="round"
+											strokeLinejoin="round"
+											d="m8.25 4.5 7.5 7.5-7.5 7.5"
+										/>
+									</svg>
+								</div>
+							</div>
+						</Link>
+						<hr className="h-px my-2 bg-gray-300 border-0 dark:bg-gray-500 mx-5"></hr>
+					</React.Fragment>
+				))}
 			</div>
 		</div>
 	);

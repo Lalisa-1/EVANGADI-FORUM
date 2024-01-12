@@ -1,7 +1,5 @@
 const dbConnection = require("../db/dbConfig");
-const bcrypt = require("bcrypt");
 const { StatusCodes } = require("http-status-codes");
-const jwt = require("jsonwebtoken");
 
 async function postAnswer(req, res) {
 	const userid = req.user.userid;

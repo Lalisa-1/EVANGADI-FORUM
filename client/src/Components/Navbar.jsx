@@ -88,7 +88,7 @@ function Navbar() {
 		};
 	}, []);
 	// console.log(windowWidth);
-	const logingOut = () => {
+	const loggingOut = () => {
 		localStorage.removeItem("token");
 		navigate("/login");
 	};
@@ -96,9 +96,9 @@ function Navbar() {
 		// logingOut();
 	}, []);
 	return (
-		<div className="bg-white w-full px-10 fixed top-0 left-0 py-5 shadow z-10 ">
+		<div className="bg-white w-full px-20 fixed top-0 left-0 py-5 shadow z-10 ">
 			{/* //  <div className="flex items-center justify-between flex-wrap bg-white py-10 px-20"> */}
-			<div className="  flex justify-between  pl-[20px] py-1 ">
+			<div className="  flex justify-between ml-20  pl-[20px] py-1 ">
 				<Link to="/login">
 					<img
 						className="max-w-none"
@@ -107,24 +107,40 @@ function Navbar() {
 					/>
 				</Link>
 				{/* {windowWidth > 990 ? ( */}
-				<div className=" flex space-x-6 mr-20">
+				<div className=" flex space-x-6 mr-20 pr-20">
 					<Link className=" hover:text-orange-500 py-2" to="/">
 						Home
 					</Link>
 					<Link className=" hover:text-orange-500 py-2" to="/">
 						How it Works
 					</Link>
-					<Link
+					{!token ? (
+						<Link
+							className="py-2 hover:bg-orange-500 text-white px-20 rounded-md border border-gray-600 bg-blue-600"
+							to="/"
+						>
+							SIGN IN
+						</Link>
+					) : (
+						<Link
+							className="py-2 hover:text-orange-500"
+							to="/"
+							onClick={loggingOut}
+						>
+							LOG OUT
+						</Link>
+					)}
+					{/* <Link
 						className={`py-2 ' ${
 							token
 								? " hover:text-orange-500"
 								: "hover:bg-orange-500 text-white  px-20   rounded-md border border-gray-600 bg-blue-600"
 						} `}
 						to="/sign in"
-						onClick={logingOut}
+						onClick={loggingOut}
 					>
 						{!token ? "SIGN IN" : "LOG OUT"}
-					</Link>
+					</Link> */}
 				</div>
 				{/* ) : (
 					<div>

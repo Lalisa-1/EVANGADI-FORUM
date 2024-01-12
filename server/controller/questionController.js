@@ -2,7 +2,6 @@ const dbConnection = require("../db/dbConfig");
 const crypto = require("crypto");
 const { StatusCodes } = require("http-status-codes");
 const { v4: uuidv4 } = require("uuid");
-// const jwt = require("jsonwebtoken");
 
 async function postQuestion(req, res) {
 	const userid = req.user.userid;
@@ -27,7 +26,7 @@ async function postQuestion(req, res) {
 	}
 }
 async function allQuestions(req, res) {
-	let userid = req.user.userid;
+	// let userid = req.user.userid;
 	try {
 		const [questions] = await dbConnection.query(
 			"select title,description,questionid,user_name FROM questions JOIN users ON users.userid = questions.userid ORDER BY id DESC"

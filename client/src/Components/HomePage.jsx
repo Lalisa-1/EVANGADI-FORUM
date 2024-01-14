@@ -7,6 +7,7 @@ function HomePage() {
 	const { user, setuser } = useContext(appcontext);
 	const [questionList, setQuestionList] = useState([]);
 	const token = localStorage.getItem("token");
+	const username = localStorage.getItem("username");
 
 	async function fetchAllQuestions() {
 		try {
@@ -22,6 +23,9 @@ function HomePage() {
 	useEffect(() => {
 		fetchAllQuestions();
 	}, []);
+	useEffect(() => {
+		console.log("User object:", user);
+	}, [user]);
 	// console.log(questionList);
 	return (
 		<div className="bg-slate-100">
@@ -29,12 +33,11 @@ function HomePage() {
 				<div>
 					<a
 						href="/questions/ask"
-						className="inline-block text-2xl px-6 mr-10 py-3 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-blue-700 mt-4 lg:mt-0 bg-blue-500"
+						className="inline-block text-2xl px-6 mr-10 py-3 leading-none border rounded text-white border-white hover:border-transparent  hover:bg-blue-700 mt-4 lg:mt-0 bg-blue-500"
 					>
 						Ask Question
 					</a>
 				</div>
-
 				<h5 className="">Welcome : {user.username}</h5>
 			</div>
 			<div className="mx-30">

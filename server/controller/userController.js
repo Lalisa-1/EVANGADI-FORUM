@@ -55,18 +55,11 @@ async function login(req, res) {
 			[email]
 		);
 
-		if (user.length == 0) {
+		if (!user || user.length == 0 || !user[0].password) {
 			return res
 				.status(StatusCodes.BAD_REQUEST)
-				.json({ msg: "invalid credential" });
+				.json({ msg: "user not found" });
 		}
-		// Optional
-
-		// if (!user || user.length == 0 || !user[0].password) {
-		// 	return res
-		// 		.status(StatusCodes.BAD_REQUEST)
-		// 		.json({ msg: "user not found" });
-		// }
 
 		// compare passwor
 

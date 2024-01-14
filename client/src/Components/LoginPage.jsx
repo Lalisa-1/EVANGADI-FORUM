@@ -1,7 +1,6 @@
 import { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "../assets/axiosConfig";
-// import { IoIosEye } from "react-icons/io";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 
@@ -51,7 +50,7 @@ function Login({ toggle }) {
 	return (
 		<>
 			<div className="w-2/5 bg-white mt-20 ml-20 pt-5 pb-2 mb-10 px-5">
-				<div className="text-center text-xl mt">Login to your account</div>
+				<div className="text-center text-xl mt-5">Login to your account</div>
 				<div className="p-1 text-center">
 					<span>Don't have an account? </span>
 					<span
@@ -86,7 +85,7 @@ function Login({ toggle }) {
 							className="shadow appearance-none border rounded w-full py-4 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
 							id="password"
 							type={togglePassword ? "text" : "password"}
-							placeholder="password"
+							placeholder="Password"
 							onChange={handlePasswordChange}
 							ref={passwordDom}
 						/>
@@ -97,21 +96,16 @@ function Login({ toggle }) {
 							{togglePassword ? <FaEye /> : <FaEyeSlash />}
 						</span>
 					</div>
-
-					<div className="flex items-center justify-between py-10">
+					<div className="text-end mt-10  hover:underline">
+						<a className="text-orange-500 ">Forgot password?</a>
+					</div>
+					<div className="flex justify-center mt-5">
 						<button
-							className="bg-blue-500 hover:bg-red-400 text-white font-bold py-3 px-20 rounded focus:outline-none focus:shadow-outline"
+							className="px-14 py-2 my-4 mb-10 text-center text-white text-xl bg-blue-500 rounded-md hover:bg-orange-400 w-full"
 							type="submit"
 						>
-							Log In
+							Login
 						</button>
-
-						<Link
-							className="inline-block align-baseline font-bold text-sm text-orange-500 hover:text-blue-800"
-							href="#"
-						>
-							Forgot Password?
-						</Link>
 					</div>
 				</form>
 			</div>

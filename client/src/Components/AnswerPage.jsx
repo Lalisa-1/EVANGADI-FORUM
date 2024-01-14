@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "..//assets/axiosConfig";
 import { appcontext } from "../App.jsx";
 
@@ -12,6 +12,23 @@ function Answer() {
 	let token = localStorage.getItem("token");
 	let navigate = useNavigate();
 
+	async function postAnswers() {
+		const answerDomValue = answerDom.current.value;
+		// console.log(answerDomValue);
+		try {
+			let { data } = await axios.post(
+				"/answers/" + questionid,
+				{ userid: user.userid, questionid: questionid, answer: answerDomValue },
+				{
+					headers: { Authorization: "Bearer " + token },
+				}
+			);
+			// console.log(data);
+			navigate("/questions");
+		} catch (error) {
+			console.log(error.response);
+		}
+	}
 	async function fetchSingleQuestions() {
 		try {
 			let { data } = await axios.get("/questions/" + questionid, {
@@ -35,23 +52,6 @@ function Answer() {
 		}
 	}
 
-	async function postAnswers() {
-		const answerDomValue = answerDom.current.value;
-		// console.log(answerDomValue);
-		try {
-			let { data } = await axios.post(
-				"/answers/" + questionid,
-				{ userid: user.userid, questionid: questionid, answer: answerDomValue },
-				{
-					headers: { Authorization: "Bearer " + token },
-				}
-			);
-			// console.log(data);
-			navigate("/questions");
-		} catch (error) {
-			console.log(error.response);
-		}
-	}
 	useEffect(() => {
 		fetchSingleQuestions();
 		fetchAnswers();

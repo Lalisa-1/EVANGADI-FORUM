@@ -5,7 +5,6 @@ import bg from "../assets/image/bg.svg";
 
 function LandingPage() {
 	const [login, setlogin] = useState(true);
-	// const bg = bg - svg - fsvg;
 
 	return (
 		<>
@@ -29,7 +28,7 @@ function LandingPage() {
 					<h2 className="text-md text-orange-400 mt-20">About</h2>
 
 					<h1 className="text-5xl text-blue-950 font-bold">
-						Evangadi Networks
+						Evangadi Networks Q & A
 					</h1>
 					<br />
 					<p className="text-s mr-40">
@@ -49,7 +48,7 @@ function LandingPage() {
 					<div>
 						<a
 							href="#"
-							className="inline-block text-m px-6 mr-10 py-3 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-orange-700 mt-4 lg:mt-0 bg-orange-400"
+							className="inline-block text-m px-6 mr-10 py-3 leading-none border rounded text-white border-white hover:border-transparent mt-4 lg:mt-0 bg-orange-400"
 						>
 							HOW IT WORKS
 						</a>

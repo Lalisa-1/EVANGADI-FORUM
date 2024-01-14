@@ -27,7 +27,7 @@ function Navbar() {
 	return (
 		<div className="bg-white w-full px-20 fixed top-0 left-0 py-5 shadow z-10 ">
 			<div className="  flex justify-between ml-20  pl-[20px] py-1 ">
-				<Link to="/login">
+				<Link to="/">
 					<img
 						className="max-w-none"
 						src="https://www.evangadi.com/themes/humans//assets/images/misc/evangadi-logo-home.png"

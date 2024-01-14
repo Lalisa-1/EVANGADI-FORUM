@@ -1,13 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
-import { appcontext } from "../App";
-import axios from "../assets/axiosConfig";
+import { AppState } from "../App";
+import axios from "../Resources/axiosConfig";
 import { Link } from "react-router-dom";
 
 function HomePage() {
-	const { user, setuser } = useContext(appcontext);
+	const { user, setuser } = useContext(AppState);
 	const [questionList, setQuestionList] = useState([]);
 	const token = localStorage.getItem("token");
-	const username = localStorage.getItem("username");
+	// const username = localStorage.getItem("user_name");
 
 	async function fetchAllQuestions() {
 		try {
@@ -23,10 +23,9 @@ function HomePage() {
 	useEffect(() => {
 		fetchAllQuestions();
 	}, []);
-	useEffect(() => {
-		console.log("User object:", user);
-	}, [user]);
+
 	// console.log(questionList);
+
 	return (
 		<div className="bg-slate-100">
 			<div className="text-3xl text-center flex justify-between ml-10 mt-5 p-20 w-4/5">
@@ -38,12 +37,12 @@ function HomePage() {
 						Ask Question
 					</a>
 				</div>
-				<h5 className="">Welcome : {user.username}</h5>
+				<h5 className="">Welcome:{user.username}</h5>
 			</div>
 			<div className="mx-30">
 				<input
 					type="text"
-					className="p-3 w-3/4 border-black border around bg-white ml-20"
+					className="p-3 w-3/4 border-black border around bg-white  mb-2 ml-20"
 					placeholder="serch question"
 				/>
 				<br />

@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useRef } from "react";
-import { appcontext } from "../App";
-import axios from "../assets/axiosConfig";
+import { AppState } from "../App";
+import axios from "../Resources/axiosConfig";
 import { useNavigate, useParams } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 
 function AskQuestion() {
-	const { user, setuser } = useContext(appcontext);
+	const { user, setuser } = useContext(AppState);
 	console.log(user.userid);
 
 	const token = localStorage.getItem("token");

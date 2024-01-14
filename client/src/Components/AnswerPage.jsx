@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import axios from "..//assets/axiosConfig";
-import { appcontext } from "../App.jsx";
+import axios from "../Resources/axiosConfig";
+import { AppState } from "../App.jsx";
 
 function Answer() {
-	let { user, setuser } = useContext(appcontext);
+	let { user, setuser } = useContext(AppState);
 	const [questionList, setQuestionList] = useState({});
 	const [answersList, setanswersList] = useState([]);
 	const { questionid } = useParams();
